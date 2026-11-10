@@ -1,0 +1,21 @@
+media:
+  input: public/images
+  output: /images
+content:
+  - name: pages
+    label: Pages
+    type: collection
+    path: src/content/pages
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: string
+        required: false
+      - name: body
+        label: Body
+        type: rich-text
