@@ -1,25 +1,27 @@
 ---
+import SiteLayout from "../layouts/SiteLayout.astro";
 import { getEntry, render } from "astro:content";
+import { site } from "../data/site";
 const home = await getEntry("pages", "home");
 if (!home) throw new Error("Missing home page content");
 const { Content } = await render(home);
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={home.data.description ?? ""} />
-    <title>{home.data.title}</title>
-    <style is:global>
-      :root { font-family: system-ui, sans-serif; color: #182b28; background: #f8faf7; }
-      body { max-width: 62rem; margin: 0 auto; padding: 2rem; line-height: 1.6; }
-      header { border-bottom: 1px solid #ccd5ce; margin-bottom: 3rem; }
-      h1 { font-size: clamp(2rem, 6vw, 4rem); line-height: 1.1; }
-    </style>
-  </head>
-  <body>
-    <header><strong>Capitol Hill Soccer Club</strong></header>
-    <main><h1>{home.data.title}</h1><Content /></main>
-  </body>
-</html>
+<SiteLayout title="Home" description={home.data.description}>
+<div class="banner"><div class="container banner-inner"><p><strong>Club updates:</strong> UK International Soccer is seeking host families for a coach exchange program.</p><a href="mailto:info@caphillsoccer.org?subject=Coach%20exchange%20host%20family">Ask about hosting ↗</a></div></div>
+<section class="hero"><div class="container hero-grid">
+<div><p class="eyebrow">Capitol Hill · Seattle</p><h1>Where every kid belongs on the field.</h1><p>Neighborhood recreational soccer built around playing together, learning skills, and growing as teammates.</p><div class="hero-actions"><a class="btn" href={site.registration} target="_blank" rel="noopener noreferrer">Register to play ↗</a><a class="btn btn-light" href="/programs/">Explore programs →</a></div></div>
+<div class="hero-photo"><img src="https://images.squarespace-cdn.com/content/v1/65f8ca078adb753568453afe/159307eb-4fcc-4c55-8fd4-c5b9e9f086fa/BU-12%2BLtg%2BStrikers.jpg" alt="Capitol Hill youth soccer team and coaches together on a field" loading="eager" /><span class="hero-stamp">Everyone plays. ⚽</span></div>
+</div></section>
+<section class="section"><div class="container"><div class="section-head"><div><p class="eyebrow">Find what you need</p><h2>Ready for the season?</h2></div><p>Quick access to the information families and coaches look for most.</p></div><div class="grid">
+<article class="card"><span class="tag">Families</span><h3>Registration</h3><p>Start with our external registration system for recreational soccer.</p><a class="more" href={site.registration} target="_blank" rel="noopener noreferrer">Go to registration ↗</a></article>
+<article class="card"><span class="tag">Players & parents</span><h3>Schedules & fields</h3><p>Find fall practice schedules, MOD games, SYSA schedules, and playfield maps.</p><a class="more" href="/schedules/">Find your schedule →</a></article>
+<article class="card"><span class="tag">Coaches</span><h3>Coach resources</h3><p>Compliance guidance, practice plans, and useful league information.</p><a class="more" href="/coaches/">Visit coaches' corner →</a></article>
+</div></div></section>
+<section class="section highlight"><div class="container"><div class="section-head"><div><p class="eyebrow">Play through the year</p><h2>More than one season.</h2></div><a class="btn btn-outline" href="/programs/">All programs →</a></div><div class="grid">
+<article class="card"><span class="tag">Aug–Nov</span><h3>Fall soccer</h3><p>U6–U9 neighborhood MOD play and U10–U19 citywide recreational soccer.</p><a class="more" href="/programs/">Explore fall soccer →</a></article>
+<article class="card"><span class="tag">Nov–Dec</span><h3>Jamboree & tournament</h3><p>Postseason events for eligible teams, including the long-running SYSA City Tournament.</p><a class="more" href="/sysa-city-tournament/">City Tournament →</a></article>
+<article class="card"><span class="tag">Jan–Mar</span><h3>Indoor soccer</h3><p>Off-season recreational play with Arena Sports. Check availability and dates for the upcoming season.</p><a class="more" href="/programs/">Indoor program →</a></article>
+</div></div></section>
+<section class="section"><div class="container split"><div><p class="eyebrow">Our mission</p><h2>Good soccer starts with good teammates.</h2><p>We believe recreational soccer should be welcoming to Capitol Hill families, with participation, skill development, sportsmanship, and teamwork at its heart.</p><a class="btn btn-outline" href="/about/">Get to know the club →</a></div><img class="photo-card" src="https://images.squarespace-cdn.com/content/v1/65f8ca078adb753568453afe/76c699ac-44bf-4c17-99f0-7c536e06f3c8/Hanna%27s%2Bteam%2Bmaybe.jpg" alt="Young Capitol Hill soccer players together after a game" loading="lazy" /></div></section>
+<section class="section dark"><div class="container split"><div><p class="eyebrow">Make it possible</p><h2>Our club runs on community.</h2><p>From coaches to families and sponsors, our neighborhood makes youth soccer possible.</p><a class="btn btn-light" href="/get-involved/">Get involved →</a></div><div class="card" style="color:var(--ink)"><h3>From the club</h3><div class="prose"><Content /></div></div></div></section>
+</SiteLayout>
