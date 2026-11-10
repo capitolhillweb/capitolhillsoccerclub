@@ -1,0 +1,9 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { site } from "../data/site";
+---
+<SiteLayout title="About" current="/about/">
+<section class="page-hero"><div class="container"><p class="eyebrow">Who we are</p><h1>Neighborhood soccer. Everyone plays.</h1><p>Capitol Hill Soccer Club is a member of Seattle Youth Soccer Association, serving local families through recreational youth soccer.</p></div></section>
+<section class="section"><div class="container split"><div><p class="eyebrow">Our mission</p><h2>Play, learn, and grow together.</h2><blockquote style="font-size:1.3rem;line-height:1.55;margin:0;border-left:5px solid var(--green);padding-left:22px">“To provide Recreational level Youth Soccer for All capitol hill families where everyone plays, developing skills is a priority, good sportsmanship is expected & we all learn the value of being a team player.”</blockquote><p class="fineprint">Mission statement retained from the current club website.</p></div><div class="card"><h3>Part of Seattle youth soccer</h3><p>Capitol Hill Soccer Club participates in the Seattle Youth Soccer Association network of neighborhood recreational clubs.</p><a class="more" href={site.sysa} target="_blank" rel="noopener noreferrer">Explore SYSA ↗</a></div></div></section>
+<section class="section highlight"><div class="container"><p class="eyebrow">Contact</p><h2>Questions? Get in touch.</h2><p><a href={`mailto:${site.email}`}>{site.email}</a></p><p>{site.address}</p></div></section>
+</SiteLayout>

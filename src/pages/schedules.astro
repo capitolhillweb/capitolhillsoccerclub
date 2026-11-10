@@ -1,0 +1,13 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { site } from "../data/site";
+---
+<SiteLayout title="Schedules & fields" current="/schedules/">
+<section class="page-hero"><div class="container"><p class="eyebrow">Season resources</p><h1>Find your next game.</h1><p>Practice schedules, game schedules, and playfield resources in one place.</p></div></section>
+<section class="section"><div class="container"><p class="notice"><strong>Fall 2026:</strong> These are links from the existing club website. Check with your coach for the latest team-specific updates.</p><div class="grid two" style="margin-top:28px">
+<article class="card"><span class="tag">Practices</span><h2>Fall practice schedule</h2><p>U6–U19 practice fields and times.</p><a class="btn" href={site.practiceSchedule} target="_blank" rel="noopener noreferrer">View practice schedule ↗</a></article>
+<article class="card"><span class="tag">U6–U9</span><h2>MOD game schedules</h2><p>Neighborhood league games organized by Capitol Hill Soccer Club.</p><a class="btn" href={site.modGames}>View MOD games →</a></article>
+<article class="card"><span class="tag">U10–U19</span><h2>Association game schedules</h2><p>Citywide recreational soccer administered by SYSA.</p><a class="btn" href="https://www.sysa.org/" target="_blank" rel="noopener noreferrer">SYSA game schedules ↗</a></article>
+<article class="card"><span class="tag">Locations</span><h2>Playfields</h2><p>Montlake and Garfield are among the playfields referenced in the club's existing resources.</p><ul class="link-list"><li><a href="https://www.google.com/maps/search/?api=1&query=Montlake+Playfield+Seattle" target="_blank" rel="noopener noreferrer">Montlake Playfield map</a></li><li><a href="https://www.google.com/maps/search/?api=1&query=Garfield+Playfield+Seattle" target="_blank" rel="noopener noreferrer">Garfield Playfield map</a></li></ul></article>
+</div></div></section>
+</SiteLayout>

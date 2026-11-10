@@ -1,0 +1,14 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { site } from "../data/site";
+---
+<SiteLayout title="Programs" current="/programs/" description="Explore recreational fall soccer, tournaments, and off-season programs.">
+<section class="page-hero"><div class="container"><p class="eyebrow">Play with us</p><h1>Soccer for every stage.</h1><p>From first touches to citywide games, our programs put participation, skills, sportsmanship, and community first.</p></div></section>
+<section class="section"><div class="container"><div class="grid two">
+<article class="card"><span class="tag">August–November</span><h2>Fall recreational soccer</h2><p>Our primary season for players U6–U19. Practices begin in late summer, with games in the fall.</p><h3>U6–U9 · MOD league</h3><p>Neighborhood-based modified soccer organized by Capitol Hill Soccer Club.</p><h3>U10–U19 · Association league</h3><p>Citywide recreational league organized by Seattle Youth Soccer Association.</p><a class="btn" href={site.registration} target="_blank" rel="noopener noreferrer">Registration ↗</a></article>
+<article class="card"><span class="tag">November</span><h2>All-City Jamboree</h2><p>A one-day event for U8 and U9 teams, organized by SYSA and Seattle United, held on the Saturday after Thanksgiving.</p><a class="more" href="https://www.sysa.org/">About the All-City Jamboree ↗</a></article>
+<article class="card"><span class="tag">December</span><h2>SYSA City Tournament</h2><p>A historic double-elimination tournament organized by SYSA since 1969 for U11–U19 teams. Games take place over two to three weeks.</p><a class="more" href="/sysa-city-tournament/">Tournament details →</a></article>
+<article class="card"><span class="tag">January–March</span><h2>Indoor recreational league</h2><p>Off-season indoor soccer in partnership with Arena Sports, for recreational and beginner players from U6 through high school.</p><ul><li>10-game season; 45-minute games</li><li>Saturday and Sunday games</li><li>No practices; approximately one hour a week</li><li>SYSA seasonal membership: $25 (as previously advertised)</li></ul><p class="fineprint">Dates, fees, and availability should be reconfirmed for the upcoming season.</p></article>
+</div></div></section>
+<section class="section highlight"><div class="container split"><div><p class="eyebrow">New to the club?</p><h2>Start with the basics.</h2><p>Registration takes place through the club's external registration system. Schedules and team information are published as the season approaches.</p><a class="btn" href={site.registration}>Visit registration ↗</a></div><div class="card"><h3>Helpful next steps</h3><ul class="link-list"><li><a href="/schedules/">Schedules and fields</a></li><li><a href="/get-involved/">Volunteer and support</a></li><li><a href="/about/">About our mission</a></li></ul></div></div></section>
+</SiteLayout>

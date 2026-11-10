@@ -1,0 +1,41 @@
+---
+import { nav, site } from "../data/site";
+import "../styles/global.css";
+interface Props { title: string; description?: string; current?: string; }
+const { title, description = "Recreational youth soccer for Capitol Hill families in Seattle.", current = "" } = Astro.props;
+const pageTitle = title === "Home" ? site.name : `${title} | ${site.name}`;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#102d46" />
+  <meta name="description" content={description} />
+  <title>{pageTitle}</title>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="container"><span>Recreational youth soccer · Capitol Hill, Seattle</span><a href={site.sysa} target="_blank" rel="noopener noreferrer">Member of Seattle Youth Soccer Association ↗</a></div></div>
+<header class="site-header"><div class="container header-inner">
+  <a class="brand" href="/" aria-label="Capitol Hill Soccer Club home"><span class="brand-icon" aria-hidden="true">⚽</span><span>Capitol Hill <small>Soccer Club · Seattle</small></span></a>
+  <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false">Menu ☰</button>
+  <nav class="nav" id="main-nav" aria-label="Main navigation">
+    {nav.map(item => <a href={item.href} aria-current={current === item.href ? "page" : undefined}>{item.label}</a>)}
+    <a class="btn" href={site.registration} target="_blank" rel="noopener noreferrer">Register ↗</a>
+  </nav>
+</div></header>
+<main id="main"><slot /></main>
+<footer class="footer"><div class="container">
+<div class="footer-grid"><div><h3>Capitol Hill Soccer Club</h3><p>Recreational youth soccer for Capitol Hill families. Everyone plays. Skills, sportsmanship, and teamwork come first.</p><p>Official member of the <a href={site.sysa}>Seattle Youth Soccer Association</a>.</p></div><div><h3>Explore</h3><p><a href="/programs/">Programs</a></p><p><a href="/schedules/">Schedules & fields</a></p><p><a href="/coaches/">Coaches</a></p><p><a href="/get-involved/">Get involved</a></p></div><div><h3>Contact</h3><p><a href={`mailto:${site.email}`}>{site.email}</a></p><p>{site.address}</p><p><a href="/about/">About the club</a></p></div></div>
+<div class="footer-bottom">© {new Date().getFullYear()} Capitol Hill Soccer Club · Independent neighborhood club within SYSA</div></div></footer>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#main-nav');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    nav?.setAttribute('data-open', String(open));
+  });
+</script>
+</body></html>

@@ -1,5 +1,6 @@
 ---
 title: Capitol Hill Soccer Club
-description: A new website for Capitol Hill Soccer Club.
+description: Recreational youth soccer for Capitol Hill families in Seattle.
 ---
-Welcome to the new Capitol Hill Soccer Club website. Content and navigation are under development.
+
+**Fall 2026:** Check the schedules and fields page for practice and game information. Questions? Email [info@caphillsoccer.org](mailto:info@caphillsoccer.org).
